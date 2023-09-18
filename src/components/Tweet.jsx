@@ -1,39 +1,28 @@
-function Tweet() {
+import User from "./User"
+import ProfileImage from "./ProfileImage"
+import Timestamp from "./Timestamp"
+
+
+
+
+function Tweet(props) {
+  const { user, message, timestamp } = props.tweet;
+  console.log(user)
+
   return (
     <div className="tweet">
-      <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
-        className="profile"
-        alt="profile"
-      />
-
-      <div className="body">
-        <div className="top">
-          <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
-          </span>
-
-          <span className="timestamp">Nov 30, 2020</span>
-        </div>
-
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
-
-        <div className="actions">
-          {/* Font Awesome icons */}
-          <i className="far fa-comment" data-testid="comment-icon"></i>
-          <i className="fas fa-retweet" data-testid="retweet-icon"></i>
-          <i className="far fa-heart" data-testid="heart-icon"></i>
-          <i className="fas fa-share" data-testid="share-icon"></i>
-        </div>
-      </div>
-
-      <i className="fas fa-ellipsis-h"></i>
+      {/* <div className="tweet-username">{user.name}</div> */}
+      <User name={user.name} handle={user.handle} />      
+      <ProfileImage src={user.image} alt={user.name} />
+      {/* <div className="tweet-handle">@{user.handle}</div> */}
+      <div className="tweet-message">{message}</div>
+      <div className="tweet-timestamp">{timestamp}</div>
     </div>
   );
 }
 
+
+
+
 export default Tweet;
+
