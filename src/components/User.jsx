@@ -1,6 +1,6 @@
 
 
-function User(props) {
+function User({ user }) {
     return (
         <span className="user">
             <div className="user">{user.name}</div>

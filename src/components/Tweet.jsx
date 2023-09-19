@@ -1,22 +1,22 @@
 import User from "./User"
 import ProfileImage from "./ProfileImage"
 import Timestamp from "./Timestamp"
+import Message from "./Message"
 
 
 
 
 function Tweet(props) {
-  const { user, message, timestamp } = props.tweet;
+  const { user, message, timestamp } = props.tweet; //object 
   console.log(user)
 
   return (
     <div className="tweet">
-      {/* <div className="tweet-username">{user.name}</div> */}
-      <User name={user.name} handle={user.handle} />      
+      <User user={props.tweet.user} />
       <ProfileImage src={user.image} alt={user.name} />
-      {/* <div className="tweet-handle">@{user.handle}</div> */}
-      <div className="tweet-message">{message}</div>
-      <div className="tweet-timestamp">{timestamp}</div>
+      <div className="tweet-handle">@{user.handle}</div>
+      <Message message={props.tweet.message} />
+      <Timestamp time={props.tweet.timestamp} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 function Message(props) {
     return (
-        <div className="tweet-message">{message}</div>
+        <div className="tweet-message">{props.message}</div>
     )
 }
 
